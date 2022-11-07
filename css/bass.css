@@ -1,0 +1,251 @@
+/* Fonts */
+
+	@font-face{
+	  font-family: agendaBold;
+	  src: url(../fonts/agenda-bold.ttf);
+	}
+	@font-face{
+	  font-family: agenda;
+	  src: url(../fonts/agenda-light.ttf);
+	}
+
+
+/* GENERAL LAYOUT */
+	body{
+		font-family: 'agenda', sans-serif;
+		font-weight: 100;
+		background: #EEEEEE;
+	}
+	sup, sub {
+	  vertical-align: baseline;
+	  position: relative;
+	  top: -0.4em;
+	}
+	sub { 
+	  top: 0.4em; 
+	}
+	.hidden{
+		display: none;
+	}
+	.faded{
+		opacity: 0;
+		pointer-events: none;
+	}
+
+/* TYPOGRRAPHY & NAV */
+	.glowText.dark{
+		text-shadow: 6px 6px 12px #D1CDC7; 
+	}
+	.backButton,
+	.forwardButton {
+		cursor: pointer;		
+		fill: #EEE;
+		stroke: rgba(255, 255, 255, 0.2);
+		stroke-width: 0.5px;
+		-webkit-filter: drop-shadow(4px 4px 6px rgba(217, 221, 200, 1)) drop-shadow(-2px -2px 2px rgba(255, 255, 255, 0.83));      
+	    filter: drop-shadow(4px 4px 4px rgba(217, 221, 200, 1)) drop-shadow(-2px -2px 4px rgba(255, 255, 255, 0.83)); 	
+	}
+
+
+/* SINGLE / MAIN PAGE LAYOUT */
+	#mainContent{
+		display: grid;
+		height: 100vh;
+		grid-template-columns: 15% 80% 5%;
+		grid-template-rows: 20% 80%;
+	}
+	#menu-pane{
+		grid-area: 1 / 1 / 1 /1;
+		z-index: 10;	
+		font-size: 14px
+	}
+	#logo{
+		width: 60%;
+	}
+	.menu-option{
+		cursor: pointer;
+		opacity: 0.5;
+	}
+	.menu-option.selected{
+		font-weight: 400;
+		opacity: 1;
+	}
+
+/* ACTIVITY DESCRIPTION */
+	#activityDescription-container{
+		position: fixed;
+		width: 30%;
+		height: 100vh;
+		left: -30%;
+		top: 0;
+		background: rgba(0, 0, 0, 0.9);
+		z-index: 99;
+		color: #fff;
+		transition: all 500ms;
+		overflow: scroll;
+	}
+	#activityDescription-container.onscreen{
+		left: 0%;
+	}	
+	#activityDescription-close{
+		font-size: 2vw;
+		text-align: right;
+		cursor: pointer;
+		padding-right: 0.25vw;
+	}
+	#activityDescription-name{
+		font-size: 2vw;
+		padding: 0.5vw;
+		padding-top: 3vh;
+	}
+	#activityDescription-content{
+		font-size: 1vw;
+		padding: 0.5vw;
+		padding-top: 2vh;
+	}
+
+
+/* GENERAL VISUALISATION LAYOUT */
+	.vis-container {
+	}
+	.vis-narrative{
+		height: 20vh;
+		display: grid;
+		grid-template-columns: 5% 15% 60% 15% 5%;
+		grid-template-rows: 20% 80%;	
+	}
+	.vis-narrative-back, 
+	.vis-narrative-forward{
+		text-align: center;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+		.vis-narrative-title{
+			grid-area: 1 / 3 / 2 / 4;	
+			font-size: 1.5vw;
+			padding-top: 1vw;
+			font-weight: bold;
+			text-align: center;
+		}
+		.vis-narrative-text{
+			grid-area: 2 / 3 / 3 / 4;	
+			font-size: 1vw;
+			padding-top: 1vw;			
+			line-height: 1.5;
+		}
+		#wedgesChart-narrative{
+			text-align: center;
+		}
+
+	.vis-narrative-back{
+		grid-area: 1 / 2 / 3 / 3;	
+		position: fixed;
+		bottom: 0vw;
+		left: 2.5vw;
+		width: 8vw;			
+	}
+	.vis-narrative-forward{
+		grid-area: 1 / 4 / 3 / 5;
+		position: fixed;
+		bottom: 0vw;
+		right: 2.5vw;
+		width: 8vw;			
+	}
+
+/* PROFILE BAR CHART & WEDGES CHART LAYOUT */
+	#baseline-vis-profileChart-container{
+		grid-area: 1 / 2 / 2 / 3;
+		z-index: 1;
+	}
+
+/* BUBBLE CHART */
+	#baseline-vis-bubbleChart-container{
+		grid-area: 1 / 1 / 3 / 4;
+		grid-template-columns: 100%;
+		grid-template-rows: 5% 20% 75%;	
+		z-index: 2;
+	}
+	#bubbleChart-container{
+		grid-area: 1 / 1 / 3 / 2;
+	}
+	#bubbleChart-controls{
+		position: fixed;
+		top: 2vw;
+		right: 2vw;
+		font-size: 0.8rem;
+	}
+	#bubbleChart-forward{
+		position: fixed;
+		bottom: 0vw;
+		right: 2.5vw;
+		width: 8vw;
+	}
+	#bubbleChart-narrative-container{
+		grid-area: 2 / 1 / 3 / 2;	
+	}
+
+/* SANKEY CONTAINER */
+	#baseline-vis-sankeyChart-container{
+		grid-area: 1 / 1 / 3 / 4;
+		z-index: 0;
+		grid-template-columns: 100%;
+		grid-template-rows: 5% 20% 75%;		
+	}
+	#sankeyChart-container{
+		grid-area: 1 / 1 / 3 / 2;	
+	}
+	#sankeyChart-narrative-container{
+		grid-area: 1 / 1 / 3 / 3;			
+		grid-template-columns: 15% 10% 30% ;
+		grid-template-rows: 20% 80%;			
+	}
+	#sankeyChart-narrativeTitle{
+		text-align: start;
+	}
+
+/* WEDGES CHART CONTAINER */
+	#netZero-vis-wedgesChart-container{
+		grid-area: 1 / 2 / 3 / 4;
+		z-index: 3;
+		grid-template-rows: 20% 80%;		
+	}
+
+	#wedgesChart-container{
+
+	}
+	#wedgesChart-narrative-container{
+		grid-area: 1 / 1 / 2 / 2;
+		z-index: 3;	
+	 grid-template-columns: 5% 10% 60% 15% 10%;
+	}
+
+/* COST CURVE CHART CONTAINER */
+	#netZero-vis-costCurve-container{
+		grid-area:  1 / 1 / 2 / 4;
+		z-index: 4;
+	}
+	.label.costCurve,
+	.subLabel.costCurve{
+		font-family: 'agenda', sans-serif;
+	}
+		#costCurve-container{
+			grid-area: 2 / 1 / 3 / 4;
+		}
+		#costCurve-timeSelector-container{
+			position: fixed;
+			top: 2vw;
+			right: 2vw;
+			font-size: 0.8rem;
+		}
+
+/*PENGUIN AUDIENCE */
+	#penguin-container{
+		position: fixed;
+		bottom: 25%;
+		left: 10%;
+		height: 5vh;
+		animation-duration: 1200s;
+		transition: all 0.5s ease;
+	}
+
+

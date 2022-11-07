@@ -1,0 +1,653 @@
+/************************************/
+/**** -------------------------- ****/
+/**** DATA VISUALISATION STYLING ****/
+/**** -------------------------- ****/
+/************************************/
+
+/***********************************/
+/***** EMISSIONS PROFILE CHART  *****/
+/***********************************/
+	svg#profileChart {
+		width: 100%;		
+	}
+	svg #profileChart-mainTitle{
+		text-anchor: middle;
+		font-size: 16px
+	}
+	svg #profileChart-volumeTitle{
+		text-anchor: middle;
+		font-weight: 400;
+		font-size: 40px
+	}
+	svg #profileChart-subTitle{
+		text-anchor: middle;
+		font-weight: 300
+	}
+		svg .profileBars{
+			fill: #FFE36C;	
+		}
+
+	/* GROSS VS NET BARS */
+		svg .profileBars.grossEmissions{
+			fill: #00708b;	
+		}
+		svg .profileBars.offsetEmissions{
+			fill: #ffe36c;	
+		}
+
+	svg .profileLabels{
+		fill: #00708b;
+		font-weight: 400;	
+		text-anchor: middle;
+		font-size: 16px;	
+	}
+	svg .profileLabels.emissionSectors{
+		font-weight: 400;	
+		text-anchor: start;
+		font-size: 14px;
+		mix-blend-mode: multiply;	
+	}
+	
+	svg .profileDataLabels{
+		text-anchor: middle;
+		font-weight: bold;
+		font-size: 16px;			
+			letter-spacing: 2px;
+	}
+		svg .profileDataLabels.grossEmissions{
+			fill: #fff;
+		}	
+		svg .profileDataLabels.offsetEmissions{
+			fill: #00708b;
+		}	
+	svg #profileChart-xAxis{
+		font-family: 'agenda';
+		opacity: 0.25;			
+	}
+
+	svg #profileChart-xAxis path.domain{
+		stroke: none;
+	}
+	svg #profileChart-xAxis .tick,
+	svg #profileChart-yAxis{
+		stroke: #000;
+		stroke-width: 0.5px;
+	}
+
+	svg .axisLabel{
+		font-size: 10px;
+		text-anchor: end;
+	}
+	svg .axisLabelUnit{
+		font-size: 8px;
+		text-anchor: end;
+	}
+
+	svg .barsSketch{
+		animation-duration: 1200s;
+		transition: all 0.5s ease;
+		cursor: pointer;
+		pointer-events: bounding-box;
+	}
+	svg .barsSketch.transport,
+	svg .barsSketch.waste{
+		stroke: #000;
+		stroke-width: 0.4px;
+	}
+
+	svg .barsSketch.transport:hover{
+		fill: #FFB525;
+		stroke: #FFB525;
+	}
+
+	svg .barsSketch.waste:hover{
+		fill: #98D200;
+		stroke: #98D200;
+	}
+	svg .barsSketch.stationaryEnergy:hover{
+		fill: #F2055C;
+	}
+	svg .barsSketch.agriculture:hover{
+		fill: #0C8B8C;
+	}
+	svg .barsSketch.land:hover{
+		fill: #920999;
+	}
+
+
+/***********************************/
+/***** EMISSIONS BUBBLE CHART  *****/
+/***********************************/
+
+	svg#bubbleChart .sectorLabel{
+		font-family: 'agendaBold';	
+		font-size: 30px;
+		/*text-shadow: #fff 1.5px 1.5px;*/
+		fill: #fff;
+		stroke: #000;
+		stroke-width: 0.75px;
+		text-anchor: middle;
+		transition: all 200ms;
+		/*fill: rgb(50,50,50);*/
+	}
+	svg#bubbleChart .sectorLabel:hover{
+		opacity: 0;
+		pointer-events: none;
+	}
+	svg#bubbleChart .xAxisItemLabels{	
+		font-size: 20px;
+	}
+	svg#bubbleChart .yAxisItemLabels{	
+		font-size: 8px;
+		font-family: 'agendaBold';	
+		opacity: 0.25;		
+	}
+	svg#bubbleChart .x-axis path.domain,
+	svg#bubbleChart .y-axis path.domain{
+		stroke: none;
+	}
+	svg#bubbleChart .bubbleChartCircle{
+		mix-blend-mode: normal;
+	}
+	svg#bubbleChart .sector-key-element > text{
+		font-weight: bold;
+		font-size: 10px;
+	}
+  	div.bubbleChart-tooltip { 
+		position: absolute;  
+		color: #FFF;  
+		background: #000;  
+		background-opacity: 0.8;  
+		width: 25rem;          
+		padding: 0.5rem 0.5rem;   
+		border: 0px;    
+		border-radius: 8px;     
+		pointer-events: none; 
+		z-index: 999; 
+  	}
+  	div.bubbleChart-tooltip > #bubbleChart-tooltip-header{ 
+      	text-align: center;
+      	font-weight: 400;
+  	}
+  	div.bubbleChart-tooltip > #bubbleChart-tooltip-classification{   	
+      	font-size: 0.75rem;   
+      	padding: 0rem 0.5rem;
+      	font-style: italic;
+      	text-align: center;      	
+  	}
+  	div.bubbleChart-tooltip > #bubbleChart-tooltip-emissions{ 	
+        color: #CDDC39;
+      	font-size: 1rem;  
+      	font-weight: bold; 
+      	padding: 0rem 0.5rem;
+      	font-style: italic;
+      	text-align: center;           	
+  	}
+	div.bubbleChart-tooltip> #bubbleChart-tooltip-description{ 
+		padding-top: 0.5rem;
+      	font-size: 0.75rem;  	
+	}
+
+
+/***********************************/
+/***** EMISSIONS SANKEY CHART  *****/
+/***********************************/
+
+	#sankeyChart-container #sankeyChart, #sankeyChart-container #sankeyCanvas  {
+	  	position: absolute;
+	}
+	svg#sankeyChart .node rect {
+	  	cursor: move;
+	  	fill-opacity: .9;
+	  	shape-rendering: crispEdges;
+	}
+	svg#sankeyChart .node text {
+		font-size: 0.75rem;
+	  	pointer-events: none;
+	  	text-shadow: 0 1px 0 #fff;
+	  	fill: #000;
+	  	font-weight: 400;
+	}
+	svg#sankeyChart .node text.activity {
+		font-size: 0.5rem;
+	}
+	svg#sankeyChart .link {
+	  fill: none;
+	  stroke: rgb(50,50,50);
+	  stroke-opacity: .2;
+	}
+	svg#sankeyChart .link:hover {
+	  stroke-opacity: .5;
+	}
+	svg#sankeyChart  .vis-container{
+		position: relative;
+		height: 90vh;
+	}
+	svg#sankeyChart .annotationLabel{
+		font-size: 16px;
+		text-anchor:  middle;
+		fill: rgba(0, 0, 0,0.6);
+	}
+	svg#sankeyChart .title{
+		font-size:  3vw;
+	}
+	svg#sankeyChart  #switchButton{
+		cursor: pointer;
+	}
+	svg#sankeyChart .annotation{
+		font-size: 0.75vw;
+		fill: #fff;
+	}
+
+/***********************************/
+/*****  ABATEMENT COST CURVE  ******/
+/***********************************/
+
+    /* STUFF BEING USED IN CRISP SKETCH */
+    svg#costCurve{
+    	transition: all 800ms;
+    }
+    svg#costCurve .block{
+      	stroke: #EEEEEE;
+      	stroke-width: 0.25px; 
+      	cursor: pointer;
+      	opacity: 0.7;  
+    }
+    svg#costCurve .block:hover{
+      	opacity: 1;
+    }
+	svg#costCurve .block.blockFocus{
+		fill: #fff;
+		opacity: 1;
+	}
+    svg#costCurve #costCurveMetrics-group{
+	    fill: #000;
+    }
+    svg#costCurve #costCurveMetrics-group #ccMetrics-header.costCurve-metrics{
+	    font-size: 18px
+    }
+    svg#costCurve #costCurveMetrics-group .costCurve-metrics{
+	    font-size: 12px
+    }
+	svg#costCurve #legend-header{
+		fill: #000;
+	    font-size: 14px
+    }
+	svg#costCurve .label.legend{
+      	font-size: 12px;   
+    }
+	svg#costCurve path.domain{
+		stroke-width: 1px;
+		fill: none;
+	}
+	svg#costCurve .y.axis path.domain{
+		stroke: none;
+		fill: none;
+	}	
+    svg#costCurve .axis{
+    	font-family: 'agenda';
+      fill: #231f20;
+    }
+    svg#costCurve .tick line{
+    	stroke: none;
+    }    
+    svg#costCurve .tick > text{
+      fill: #231f20;
+      font-size: 0.5rem;
+    }
+	svg#costCurve .energyEfficiency{
+		fill: #FFE374;                    
+    }
+	svg#costCurve .emissionsReduction{
+		fill: #ADDBDC;                    
+    }    
+    svg#costCurve .renewableGeneration{
+		fill: #0F677D;   
+    }
+    svg#costCurve .transport{
+		fill: #03a9f4;   
+    }
+    svg#costCurve .agriculture{
+      	fill: #EFB605;   
+    }
+    svg#costCurve .carbonSequestration{
+      	fill: #495627;   
+    }
+    svg#costCurve .fuelSwitching{
+		fill: #5E5E5E;   
+    }
+    svg#costCurve .waste{
+		fill: #f40;   
+    }
+    svg#costCurve #costCurveTargetLine{
+      	stroke: red;
+      	stroke-dasharray: 5px 5px;
+      	stroke-width: 1px;   
+    }
+    svg#costCurve .costCurveTargetText{
+    	fill: red;
+    	font-size: 12px;
+    }
+    svg#costCurve #costCurveAbatementLine{
+      	stroke: blue;
+      	stroke-dasharray: 5px 5px;
+      	stroke-width: 1px;   
+    }
+    svg#costCurve .costCurveAbatementText{
+    	fill: blue;
+    	font-size: 12px;
+    }
+	svg#costCurve .label{
+		font-size: 16px;
+		fill: #231f20;
+	}
+	svg#costCurve .subLabel{		
+		font-size: 10px;
+		fill: #231f20;
+	}
+	svg#costCurve .optionLabel{		
+		font-size: 8px;
+		fill: #231f20;
+		pointer-events: none;
+	}
+	svg#costCurve .zero-labelLine{
+		stroke: #231f20;
+		stroke-width: 0.5px;
+	}
+	svg#costCurve .zero-label{
+		fill: #231f20;
+		font-size: 10px;
+		font-weight: bold;
+	}
+
+	/* CRAZY INTRO PERSPECTIVE VIEW */
+	svg#costCurve.perspective{
+		/*transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) scale(2.5) translateX(20%);	*/
+	}
+/*	svg#costCurve.perspective .energyEfficiency{
+		fill: #00d565;                    
+    }
+    svg#costCurve.perspective .renewableEnergyGeneration{
+		fill: #d5008e;   
+    }
+    svg#costCurve.perspective .fuelSwitching{
+		fill: #d5d500;   
+    }
+    svg#costCurve.perspective .agriculture{
+      	fill: #bf5a15;   
+    }
+    svg#costCurve.perspective .carbonSequestration{
+      	fill: #EFB605;   
+    }*/
+	
+	svg#costCurve  .offsetLine{
+	    stroke: #52be36;
+	    stroke-width: 1.5px;
+	    stroke-dasharray: 5 5;
+	}
+	svg#costCurve .targetLine{
+	    stroke: #52be36;
+	    stroke-width: 1.5px;
+	    stroke-dasharray: 5 5;
+	}
+	svg#costCurve .actorHeader{
+		font-size: 14px;
+		font-weight: bold;
+	}
+  	div.costCurve-tooltip { 
+		position: absolute;  
+		color: #FFF;  
+		background: #000;  
+		background-opacity: 0.8;  
+		width: 25rem;          
+		padding: 0.5rem 0.5rem;   
+		border: 0px;    
+		border-radius: 8px;     
+		pointer-events: none; 
+		z-index: 999; 
+		display: grid;   
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: calc(25%) repeat(2, 1fr) calc(10%);
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-header{
+         grid-area: 1 / 1 / 1 / 5;     
+         text-align: center; 	 
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-uptakeHeader{
+         grid-area: 2 / 1 / 2 / 1;      	
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-uptake{
+         grid-area: 3 / 1 / 3 / 1;      	   
+  	}  	
+  	div.costCurve-tooltip > #costCurve-tooltip-uptakeHeader,
+  	div.costCurve-tooltip > #costCurve-tooltip-uptake{
+      	color: #52be36;
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-contributionHeader{
+        grid-area: 2 / 2 / 2 / 2;      	 
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-contribution{
+        grid-area: 3 / 2 / 3 / 2;      	
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-abatement{
+        grid-area: 3 / 3 / 3 / 3;      	  
+  	}  	
+  	div.costCurve-tooltip > #costCurve-tooltip-abatementHeader{
+        grid-area: 2 / 3 / 2 / 3;      	   
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-abatement,
+  	div.costCurve-tooltip > #costCurve-tooltip-abatementHeader{
+      	color: #b5dc17;
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-abatementCostHeader{
+         grid-area: 2 / 4 / 2 / 4;      	   
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-abatementCost{
+         grid-area: 3 / 4 / 3 / 4;      	 
+  	}
+  	div.costCurve-tooltip > #costCurve-tooltip-instruction{
+        grid-area: 4 / 1 / 4 / 5;      	
+      	font-size: 0.75rem;    
+      	font-style: italic;
+      	text-align: center;
+      	justify-self: center; 
+  	}
+  	div.costCurve-tooltip > .tooltipLabel{   	
+      	font-size: 0.75rem;   
+      	padding: 0rem 0.5rem;
+      	align-self: center;
+      	justify-self: end; 
+      	font-style: italic;
+  	}
+  	div.costCurve-tooltip > .tooltipNumber{   	
+      	font-size: 1rem;  
+      	font-weight: bold;
+      	padding: 0rem 0.5rem; 
+      	line-height: 1;	  
+  	}
+	div.costCurve-tooltip > .tooltipNumber .tooltipUnit{
+      	font-size: 0.75rem;  	
+	}
+
+
+
+/***********************************/
+/***** ABATEMENT WEDGES CHART ******/
+/***********************************/
+
+	svg#wedgesChart{
+    	transition: all 800ms;	
+	}
+	svg#wedgesChart.perspective{
+		/*transform: rotateX(45deg) rotateY(0deg) rotateZ(35deg) scale(3) translateX(30%) translateY(20%);*/
+	}
+	svg#wedgesChart  .y.axis path.domain,
+	svg#wedgesChart  .tick line{
+		stroke: none;
+	}
+	svg#wedgesChart  .x.axis path.domain{
+		stroke: #000;
+	}	
+    svg#wedgesChart .tick > text{
+      fill: #000;
+      font-size: 0.5rem;
+    }
+	svg#wedgesChart .line{
+		fill: none;
+		stroke-width: 1px;
+	}
+	svg#wedgesChart .referenceWorld,
+	svg#wedgesChart .actionWorld{
+		filter: url(#glow);
+		stroke-width: 3px;		
+	}
+	svg#wedgesChart .referenceWorld{
+		stroke: #FFE36C;		/* Bass yellow */
+	}
+	svg#wedgesChart #referenceEmissionsPathMarker{
+		fill: #FFE36C;
+		r: 7.5;					
+	}	
+	svg#wedgesChart .actionWorld{
+		stroke: #00708B;		/* Bass dark blue */
+	}	
+	svg#wedgesChart #actionEmissionsPathMarker{
+		fill: #00708B;		/* Bass dark blue */
+		r: 7.5;			
+	}
+	svg#wedgesChart #baselineEmissionsMarker{
+		fill: #C7DFE7;		/* Bass light blue */
+		r: 12.5;	
+	}
+	svg#wedgesChart #targetEmissionsMarkerInner{
+		fill: red;		
+		r: 5;		
+	}
+	svg#wedgesChart #targetEmissionsMarkerOuter{
+		fill: none;
+		stroke-width: 4px;
+		stroke: red	;
+		r: 10;
+	}
+	svg#wedgesChart #baselineEmissionsLabel,
+	svg#wedgesChart #referenceEmissionsLabel,
+	svg#wedgesChart #targetEmissionsLabel,
+	svg#wedgesChart #netEmissionsLabel{
+		font-weight: bold;
+		/*filter: url(#glow);	*/
+		font-size: 14px
+	}
+	svg#wedgesChart #referenceEmissionsLabel{
+		fill: #1e1e1e;
+	}
+	svg#wedgesChart #netEmissionsLabel{
+		fill: #00708B;	
+	}
+	svg#wedgesChart #baselineEmissionsLabel{
+		fill: #1e1e1e;		/* Charcoal */
+		text-anchor: middle;
+	}
+	svg#wedgesChart #targetEmissionsLabel{
+		fill: #1e1e1e;	
+	}
+    svg#wedgesChart #netTotalsWedge {
+		fill: #00708B;		/* Bass dark blue */
+      	opacity: 0.7;
+    }
+    svg#wedgesChart #grossOffsetWedge {
+		fill: #a4a726;		/* Earthy green */
+
+    }
+    svg#wedgesChart #grossTotalWedge {
+		fill: #decca6;		/* Earth brown */
+    }
+    svg#wedgesChart #referenceCaseWedge {
+      	fill: #C7DFE7;		/* Bass light blue */
+    }
+	svg#wedgesChart .wedgeLabel{
+		font-size: 30px;
+		font-weight: bold;
+		text-shadow: 2px 2px 0px #000;		
+	}
+	svg#wedgesChart .wedgeSubLabel{
+		font-size: 16px;
+		font-weight: bold;
+	}
+	svg#wedgesChart #offsetsLabel{
+		font-size: 40px;
+		text-anchor: middle;		
+		fill: green;
+	}
+	svg#wedgesChart #grossWedgeLabel{
+		text-anchor: middle;		
+		fill: #FFF;
+	}
+	svg#wedgesChart #netTotalsWedgeLabel{
+		font-family: 'agendaBold';
+		font-size: 20px;
+		text-anchor: middle;		
+		fill: #fff;		
+		mix-blend-mode: normal;
+	}
+	svg#wedgesChart #impactWedgeLabel{
+		font-family: 'agendaBold';
+		font-size: 20px;		
+		text-anchor: middle;	
+		fill: #fff;	
+		mix-blend-mode: normal;				
+	}
+	svg#wedgesChart .sectorWedgeLabel{
+		font-family: 'agendaBold';
+		fill: #fff;
+		font-size: 20px;
+		text-shadow: 3px 3px 0px #000;
+		text-anchor: middle;
+	}
+	svg#wedgesChart .label.wedgesChart{
+		font-family: 'agenda';		
+		fill: #1e1e1e;
+		font-size: 20px;
+	}
+	svg#wedgesChart .subLabel.wedgesChart{	
+		font-family: 'agenda';		
+		fill: #1e1e1e	;
+		font-size: 10px;
+	}
+	svg#wedgesChart .labelOnPath{
+		font-size: 12px;
+	}
+	svg#wedgesChart .multiplesAxes.wedgesChart .domain {
+		stroke: none;
+	}
+
+
+/***********************************/
+/*******  PLAYBOOK FLOWCHART  ******/
+/***********************************/
+
+	.simplePlanAnnotation{
+		fill: #fff;
+	}
+  	div.playbook-tooltip { 
+		position: absolute;  
+		color: #000;  
+		background: #FFF;  
+		background-opacity: 0.8;  
+		width: 15rem;          
+		padding: 0.5rem 0.5rem;   
+		border: 0px;    
+		border-radius: 8px;     
+		pointer-events: none; 
+		z-index: 999; 
+		padding-top: 0.5rem;
+      	font-size: 0.75rem;  	
+  	}
+	#pb_planAnnotation,
+	.pb_connector{
+		pointer-events: none;
+	}
+	.pb_modelledAction, 
+	.pb_actionType{
+		cursor: pointer;
+		pointer-events: bounding-box
+	}
